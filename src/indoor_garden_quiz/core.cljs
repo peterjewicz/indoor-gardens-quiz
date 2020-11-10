@@ -9,21 +9,33 @@
 
 
 ;; define your app data so that it doesn't get over-written on reload
-(defonce app-state (atom {:text "Hello world!"}))
+(defonce app-state (atom {:answers []}))
 
-(defn set-answer [])
+(defn set-answer [key]
+  (swap! app-state update-in [:answers] merge key))
 
 (defn next-question [])
 
 (defn handle-answer [key]
-  (js/alert key))
+  (swap! app-state update-in [:answers] merge key))
+
+
+(defn question-position [answers index]
+  (cond
+    (and (= index 0) (not (contains? answers index))) "center"
+    (contains? answers index) "left"
+    (contains? answers (- index 1)) "center"
+    :else "right"))
 
 (defn get-app-element []
-  (gdom/getElement "app"))
+  (gdom/getElement "quiz"))
 
 (defn Quiz []
-  [:div
-   [Question true (first question-list) handle-answer]])
+  [:div.Quiz
+   [Question (question-position (:answers @app-state) 0) (first question-list) handle-answer]
+   [Question (question-position (:answers @app-state) 1) (second question-list) handle-answer]
+   [Question (question-position (:answers @app-state) 2) (nth question-list 2) handle-answer]
+   [Question (question-position (:answers @app-state) 3) (nth question-list 3) handle-answer]])
 
 (defn mount [el]
   (rdom/render [Quiz] el))

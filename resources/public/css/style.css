@@ -1,2 +1,33 @@
 /* some style */
+:root {
+  --core-width: 500px;
+}
+
+.Quiz {
+  width: var(--core-width);
+  height: 400px;
+  background: #fce4c2;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.Question {
+  position: absolute;
+  top: 0;
+  transition: all .75s;
+  width: var(--core-width);
+}
+
+.Question.right {
+  left: 150%;
+}
+
+.Question.center {
+  left: 0;
+}
+
+.Question.left {
+  left: -150%;
+}
 
