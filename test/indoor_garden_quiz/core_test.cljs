@@ -1,10 +1,12 @@
 (ns indoor-garden-quiz.core-test
     (:require
-     [cljs.test :refer-macros [deftest is testing]]))
+     [cljs.test :refer-macros [deftest is testing]]
+     [indoor-garden-quiz.components.progress :refer [PROGRESS-WIDTH set-progress-width]]))
 
 
-; (deftest multiply-test
-;   (is (= (* 1 2) (multiply 1 2))))
-;
-; (deftest multiply-test-2
-;   (is (= (* 75 10) (multiply 10 75))))
+(deftest progress-test
+  (is (= (set-progress-width 4 1) 50)))
+
+(deftest progress-test-2
+  (is (= (set-progress-width 4 3) 150)))
+

@@ -4,7 +4,8 @@
    [reagent.core :as reagent :refer [atom]]
    [reagent.dom :as rdom]
    [indoor-garden-quiz.components.questions :refer [question-list]]
-   [indoor-garden-quiz.components.question :refer [Question]]))
+   [indoor-garden-quiz.components.question :refer [Question]]
+   [indoor-garden-quiz.components.progress :refer [Progress]]))
 
 
 
@@ -35,7 +36,8 @@
    [Question (question-position (:answers @app-state) 0) (first question-list) handle-answer]
    [Question (question-position (:answers @app-state) 1) (second question-list) handle-answer]
    [Question (question-position (:answers @app-state) 2) (nth question-list 2) handle-answer]
-   [Question (question-position (:answers @app-state) 3) (nth question-list 3) handle-answer]])
+   [Question (question-position (:answers @app-state) 3) (nth question-list 3) handle-answer]
+   [Progress (count question-list) (count (:answers @app-state))]])
 
 (defn mount [el]
   (rdom/render [Quiz] el))

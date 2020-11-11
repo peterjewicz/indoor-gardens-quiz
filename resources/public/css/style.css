@@ -1,15 +1,22 @@
 /* some style */
 :root {
   --core-width: 500px;
+  --green: #8ec63f;
+}
+
+p {
+  margin: 0;
 }
 
 .Quiz {
   width: var(--core-width);
   height: 400px;
-  background: #fce4c2;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  background: var(--green);
+  border-radius: 25px;
+  color: white;
 }
 
 .Question {
@@ -17,6 +24,10 @@
   top: 0;
   transition: all .75s;
   width: var(--core-width);
+}
+
+.Question__title {
+  text-align: center;
 }
 
 .Question.right {
@@ -29,5 +40,37 @@
 
 .Question.left {
   left: -150%;
+}
+
+.Question__answers {
+  color: black;
+  background: white;
+  padding: 10px 5px;
+  border-bottom: 1px solid var(--green);
+  transition: all .5s;
+}
+
+.Question__answers:hover {
+  color: white;
+  background: var(--green);
+  cursor: pointer;
+}
+
+.Progress {
+  position: absolute;
+  left: calc(50% - 100px);
+  bottom: 90px;
+  height: 25px;
+  background: white;
+  border-radius: 25px;
+}
+
+.Progress__inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 25px;
+  border-radius: 25px;
+  background: yellow;
 }
 
