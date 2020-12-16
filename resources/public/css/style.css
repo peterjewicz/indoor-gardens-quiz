@@ -74,3 +74,16 @@ p {
   background: yellow;
 }
 
+/* RESULTS PAGE */
+.Results {
+  position: absolute;
+  top: 0;
+  transition: all .75s;
+  width: var(--core-width);
+  left: 150%;
+}
+
+.Results.active {
+  left: 0;
+}
+
