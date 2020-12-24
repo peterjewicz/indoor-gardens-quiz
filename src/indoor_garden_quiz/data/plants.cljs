@@ -40,7 +40,7 @@
             :FULL {
                    :LOW "Scallions"
                    :MEDIUM "Eggplants"
-                   :HIGH "Watermellowns"}}})
+                   :HIGH "Watermellons"}}})
 
 (def cook-options
   {:SMALL {
